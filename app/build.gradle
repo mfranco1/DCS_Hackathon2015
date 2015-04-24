@@ -12,7 +12,11 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            resValue "string", "google_maps_key", "AIzaSyD2hau7UvqTVJdbP86duZW_O2_plU9KGg0"
+        }
         release {
+            resValue "string", "google_maps_key", "AIzaSyD2hau7UvqTVJdbP86duZW_O2_plU9KGg0"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -22,4 +26,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.google.android.gms:play-services:6.5.87'
 }

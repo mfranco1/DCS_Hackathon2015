@@ -4,5 +4,7 @@
     <string name="app_name">DCShackathon2015</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_terminals">Terminals</string>
+    <string name="title_activity_temp">Map</string>
 
 </resources>

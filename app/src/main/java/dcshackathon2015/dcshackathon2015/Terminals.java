@@ -1,71 +1,45 @@
 package dcshackathon2015.dcshackathon2015;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import android.widget.LinearLayout;
 
 
-public class Home extends ActionBarActivity {
+public class Terminals extends ActionBarActivity {
 
-    private AutoCompleteTextView searchText;
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_terminals);
 
         sharedPreferences = getSharedPreferences("AmpalayaBitter", Context.MODE_PRIVATE);
-        searchText = (AutoCompleteTextView) findViewById(R.id.searchLocationText);
-        //populateAutoComplete();
 
-        Button searchButton = (Button) findViewById(R.id.searchLocationButton);
+        LinearLayout terminalContainer = (LinearLayout) findViewById(R.id.container);
+
+        Button searchButton = (Button) findViewById(R.id.homeButton);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String location = searchText.getText().toString();
-                if(sanitizeText(location)){
-                    searchLocation(location);
-                }
+                startActivity(new Intent(getApplicationContext(), Home.class));
+                finish();
             }
         });
-    }
-
-    public boolean sanitizeText(String t){
-        Boolean valid = true;
-        //valid = t.matches("[a-zA-Z0-9_@+.-]*");
-        if(t.length() > 40 || t.length() < 1){
-            valid = false;
-            searchText.setError("Invalid input");
-        }
-        //searchText.setText(valid.toString());
-        return valid;
-    }
-
-    public void searchLocation(String location){
-        startActivity(new Intent(getApplicationContext(), Terminals.class));
-        finish();
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
+        getMenuInflater().inflate(R.menu.menu_terminals, menu);
         return true;
     }
 
