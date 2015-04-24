@@ -1,9 +1,18 @@
 package dcshackathon2015.dcshackathon2015;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Home extends ActionBarActivity {
@@ -12,10 +21,7 @@ public class Home extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,5 +43,17 @@ public class Home extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void displayTerminal(View view){
+        //Intent intent = new Intent(this, DBMethodHandler.class);
+        //EditText editText = (EditText)findViewById(R.id.searchLocationButton);
+        TextView terminalView = (TextView)findViewById(R.id.terminalView);
+        //String toDisplay;
+        DBHandler2 db = new DBHandler2(this);
+        Cursor c = db.getTerminalItems();
+        //int count = c.getColumnCount();
+        //terminalView.setText(Integer.toString(count));
+        c.close();
     }
 }
