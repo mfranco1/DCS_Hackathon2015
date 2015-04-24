@@ -107,8 +107,8 @@ public class Home extends ActionBarActivity {
         //String toDisplay;
         DBHandler2 db = new DBHandler2(this);
         Cursor c = db.getTerminalItems();
-        //int count = c.getColumnCount();
-        //terminalView.setText(Integer.toString(count));
+        int count = c.getColumnCount();
+        terminalView.setText(Integer.toString(count));
         c.close();
     }
 }

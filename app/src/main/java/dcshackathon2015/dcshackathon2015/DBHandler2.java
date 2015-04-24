@@ -55,43 +55,4 @@ public class DBHandler2 extends SQLiteAssetHelper{
         c.moveToFirst();
         return c;
     }
-
-    /*
-    private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_TRIP = "trip";
-    private static final String TABLE_TERMINAL = "terminal";
-
-    //terminal column name
-    private static final String TERMINAL = "Terminal";
-    private static final String TERMINAL_ID = "Terminal_id";
-    private static final String TERMINAL_PLACE = "Terminal_place";
-
-    //trip column name
-    private static final String TRIP = "Trip";
-    private static final String  TRIP_ID = "Trip_id";
-    private static final String TRIP_NAME = "Trip_name";
-    private static final String TERMINAL_TERMINAL_ID = "Terminal_Terminal_id";
-    private static final String TRIP_AVAILABILITY = "Trip_availability";
-
-    //crate table
-    public void onCreate(SQLiteDatabase db){
-        String CREATE_TRIP_TABLE = "CREATE TABLE " + TRIP + "("
-                + TRIP_ID + " INTEGER NOT NULL UNIQUE, " + TRIP_NAME
-                + " TEXT NOT NULL, " + TERMINAL_TERMINAL_ID + " INTEGER NOT NULL, "
-                + TRIP_AVAILABILITY + " INTEGER NOT NULL, PRIMARY KEY (" +
-                TRIP_ID + "), FOREIGN KEY(" + TERMINAL_TERMINAL_ID + ") REFERENCES"
-                + TERMINAL + "(" + TERMINAL_ID + "))";
-        String CREATE_TERMINAL_TABLE = "CREATE TABLE " + TERMINAL + "(" + TERMINAL_ID
-                + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " + TERMINAL_PLACE
-                + " TEXT NOT NULL)";
-        db.execSQL(CREATE_TERMINAL_TABLE);
-        db.execSQL(CREATE_TRIP_TABLE);
-    }
-
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        db.execSQL("DROP TABLE IF EXISTS " + TERMINAL);
-        db.execSQL("DROP TABLE IF EXISTS " + TRIP);
-        onCreate(db);
-    }
-    */
 }
