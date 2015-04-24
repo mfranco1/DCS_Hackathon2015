@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Destination"
+            android:label="@string/title_activity_destination"
+            android:parentActivityName=".Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dcshackathon2015.dcshackathon2015.Home" />
+        </activity>
     </application>
 
 </manifest>
