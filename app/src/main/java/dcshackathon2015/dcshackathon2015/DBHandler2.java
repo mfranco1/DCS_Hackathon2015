@@ -22,14 +22,19 @@ public class DBHandler2 extends SQLiteAssetHelper{
         String TRIP = "Trip";
     }
     public interface TERMINAL_COLUMNS{
-        String TERMINAL_ID = "Terminal_id";
-        String TERMINAL_PLACE = "Terminal_place";
+        String ID = "ID";
+        String NAME = "name";
+        String CITY_ID = "city_id";
     }
     public interface TRIP_COLUMNS{
-        String TRIP_ID = "Trip_id";
-        String TRIP_NAME = "Trip_name";
-        String TERMINAL_TERMINAL_ID = "Terminal_Terminal_id";
-        String TRIP_AVAILABILITY = "Trip_availability";
+        String ID = "ID";
+        String TERMINAL_ID_ORIGIN = "terminal_id_origin";
+        String TERMINAL_ID_DESTINATION = "terminal_id_destination";
+        String AVAILABILITY = "availability";
+        String AVERAGE_WAITING_TIME = "average_waiting_time";
+        String AVERAGE_WAITING_TIME_RUSH = "average_waiting_time_rush";
+        String AVERAGE_TRAVEL_TIME = "average_travel_time";
+        String AVERAGE_TRAVEL_TIME_RUSH = "average_travel_time_rush";
     }
 
     public DBHandler2(Context context) {

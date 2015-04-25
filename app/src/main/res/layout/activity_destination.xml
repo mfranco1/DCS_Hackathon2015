@@ -28,64 +28,20 @@
         android:scrollbarStyle="outsideInset"
         android:fillViewport="true">
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalView"
-            android:layout_height="wrap_content"
-            android:scrollbars="horizontal|vertical"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="5dip">
 
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id = "@+id/RHE"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0"
-                android:padding="5dp"
-                android:layout_below="@+id/home"
-                android:layout_centerHorizontal="true"
-                android:stretchColumns="*"
-                android:layout_marginTop="57dp">
-
-
-                <TableRow android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/originLabel"
-                        android:text="Origin"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/destinationLabel"
-                        android:text="Destination"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/availabilityLabel"
-                        android:text="availability"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/waitingTime"
-                        android:text="Waiting Time"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/waitingTimeRush"
-                        android:text="Waiting Time Rush"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/travelTime"
-                        android:text="Travel Time"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:id="@+id/travelTimeRush"
-                        android:text="Travel Rush Time"
-                        android:layout_height="wrap_content"
-                        />
-                </TableRow>
-
-            </TableLayout>
-        </HorizontalScrollView>
     </ScrollView>
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/home" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/home"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

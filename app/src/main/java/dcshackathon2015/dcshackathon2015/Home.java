@@ -121,6 +121,7 @@ public class Home extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     /*
     public void displayTerminal(View view){
         //Intent intent = new Intent(this, DBMethodHandler.class);
