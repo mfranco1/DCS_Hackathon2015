@@ -31,7 +31,6 @@
         style="?android:textAppearanceSmall"
         android:layout_width="195dp"
         android:layout_height="33dp"
-        android:onClick="displayTerminal"
         android:text="SEARCH"
         android:textColor="#ff000000"
         android:background="#cf5fc1ef"

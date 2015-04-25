@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.TextView;
 
 
 public class Destination extends ActionBarActivity {
@@ -21,6 +24,8 @@ public class Destination extends ActionBarActivity {
         setContentView(R.layout.activity_destination);
 
         sharedPreferences = getSharedPreferences("Ampalaya", Context.MODE_PRIVATE);
+        String source = sharedPreferences.getString("source","");
+        String destination = sharedPreferences.getString("destination","");
 
         Button home = (Button) findViewById(R.id.home);
         home.setOnClickListener(new View.OnClickListener() {

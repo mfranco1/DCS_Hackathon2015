@@ -14,7 +14,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
  */
 public class DBHandler2 extends SQLiteAssetHelper{
 
-    private static final String DATABASE_NAME = "database.db";
+    private static final String DATABASE_NAME = "newDataBase.db";
     private static final int DATABASE_VERSION = 1;
 
     public interface TABLES{
@@ -36,13 +36,11 @@ public class DBHandler2 extends SQLiteAssetHelper{
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public Cursor getTerminalItems(){
+    public Cursor getTerminalItems(String source, String dest){
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         qb.setTables(TABLES.TERMINAL);
-        //Cursor c = qb.query(db, null, null, null, null, null, null);
-        //Cursor c = db.query(TABLES.TERMINAL, new String[] {TERMINAL_COLUMNS.TERMINAL_ID,TERMINAL_COLUMNS.TERMINAL_PLACE},"title_raw like " + "'%Smith%'", null, null, null, null);
-        Cursor c = db.rawQuery("SELECT * FROM "+TABLES.TERMINAL,null);
+        Cursor c = db.rawQuery("SELECT a.name AS origin, b.name AS destination, Trip.availability, Trip.average_waiting_time, Trip.average_waiting_time_rush, Trip.average_travel_time, Trip.average_travel_time_rush FROM Trip JOIN Terminal a, Terminal b ON Trip.terminal_id_origin = a.ID AND Trip.terminal_id_destination = b.ID WHERE a.name LIKE '%"+source+"%' AND b.name LIKE '%"+dest+"%'",null);
         //c.moveToFirst();
         return c;
     }

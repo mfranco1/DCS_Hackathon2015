@@ -39,14 +39,19 @@ public class Home extends ActionBarActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(sanitizeText(source.getText().toString(),destination.getText().toString())){
                     if(!isEmpty(source.getText().toString()) && isEmpty(destination.getText().toString())){
-                        externalWrite(source.getText().toString());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("source",source.getText().toString());
+                        editor.commit();
                         startActivity(new Intent(getApplicationContext(), Destination.class));
                         finish();
                     }
                     else if(!isEmpty(destination.getText().toString()) && isEmpty(source.getText().toString())){
-                        externalWrite(destination.getText().toString());
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("destination",destination.getText().toString());
+                        editor.commit();
                         startActivity(new Intent(getApplicationContext(), Destination.class));
                         finish();
                     }
@@ -65,19 +70,13 @@ public class Home extends ActionBarActivity {
                     }
                 }
             }
-        });
-    }
-
-    public void externalWrite(String t){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("searchWord",t);
-        editor.commit();
+        }); //END
     }
 
     public void externalWrite(String t1, String t2){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("searchWord",t1);
-        editor.putString("searchWord2",t2);
+        editor.putString("source",t1);
+        editor.putString("destination",t2);
         editor.commit();
     }
 
@@ -122,6 +121,7 @@ public class Home extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
     public void displayTerminal(View view){
         //Intent intent = new Intent(this, DBMethodHandler.class);
         //EditText editText = (EditText)findViewById(R.id.searchLocationButton);
@@ -132,5 +132,5 @@ public class Home extends ActionBarActivity {
         int count = c.getColumnCount();
         terminalView.setText(Integer.toString(count));
         c.close();
-    }
+    }*/
 }
