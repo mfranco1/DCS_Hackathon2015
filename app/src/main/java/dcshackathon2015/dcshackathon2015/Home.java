@@ -31,6 +31,10 @@ public class Home extends ActionBarActivity {
         setContentView(R.layout.activity_home);
 
         sharedPreferences = getSharedPreferences("Ampalaya", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("source");
+        editor.remove("destination");
+        editor.commit();
 
         source = (AutoCompleteTextView) findViewById(R.id.searchSourceText);
         destination = (AutoCompleteTextView) findViewById(R.id.searchDestinationText);
